@@ -1,20 +1,19 @@
 import React from 'react';
-import Users from '@/components/Users/Users';
+import Users from '../components/Users/Users';
 
-async function fetchUsers() {
+const fetchUsers = async () => {
   const res = await fetch('https://reqres.in/api/users');
   const data = await res.json();
   return data.data;
-}
+};
 
-async function IndexPage() {
+const IndexPage = async () => {
   const users = await fetchUsers();
-  console.log(users);
   return (
     <div>
       <Users users={users} />
     </div>
   );
-}
+};
 
 export default IndexPage;
